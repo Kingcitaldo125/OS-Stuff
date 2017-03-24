@@ -1,0 +1,206 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+cursordudecol       0x4               console.o
+crow                0x4               kernelc.o
+cursorduderow       0x4               console.o
+rctr                0x4               console.o
+hhh                 0x4               console.o
+colctr              0x4               console.o
+exrctr              0x4               console.o
+global_counter      0x4               kernelc.o
+linesize            0x4               kernelc.o
+chh                 0x4               kernelc.o
+buffer_ready        0x4               kernelc.o
+ccc                 0x4               console.o
+files               0x8c              keyboard.o
+c                   0x1               kernelc.o
+linebuff            0x28              kernelc.o
+bspacectr           0x4               kernelc.o
+
+Discarded input sections
+
+ .eh_frame      0x00000000      0x138 kernelc.o
+ .eh_frame      0x00000000       0x58 util.o
+ .eh_frame      0x00000000      0x128 kprintf.o
+ .eh_frame      0x00000000      0x274 console.o
+ .eh_frame      0x00000000       0x58 keyboard.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00400000                __image_base__ = 0x400000
+                0x00000000                __dll__ = 0x0
+                0x00400000                ___ImageBase = 0x400000
+                0x00001000                __section_alignment__ = 0x1000
+                0x00000200                __file_alignment__ = 0x200
+                0x00000004                __major_os_version__ = 0x4
+                0x00000000                __minor_os_version__ = 0x0
+                0x00000001                __major_image_version__ = 0x1
+                0x00000000                __minor_image_version__ = 0x0
+                0x00000004                __major_subsystem_version__ = 0x4
+                0x00000000                __minor_subsystem_version__ = 0x0
+                0x00000003                __subsystem__ = 0x3
+                0x00200000                __size_of_stack_reserve__ = 0x200000
+                0x00001000                __size_of_stack_commit__ = 0x1000
+                0x00100000                __size_of_heap_reserve__ = 0x100000
+                0x00001000                __size_of_heap_commit__ = 0x1000
+                0x00000000                __loader_flags__ = 0x0
+                0x00000000                __dll_characteristics__ = 0x0
+                0x00001000                . = 0x1000
+
+.text           0x00001000     0x5c00
+                0x00001000                stext = .
+ *(.text)
+ .text          0x00001000     0x1f89 kernelasm.o
+                0x00002236                outb
+ *fill*         0x00002f89        0x7 
+ .text          0x00002f90       0x13 kernelinb.o
+                0x00002f90                inb
+                0x00002f99                inw
+ *fill*         0x00002fa3        0x1 
+ .text          0x00002fa4      0x8a0 kernelc.o
+                0x00002fa4                pics
+                0x00003064                highlevel_handler
+                0x0000324b                refreshPage
+                0x000032b9                deleteKey
+                0x0000333d                handleK
+                0x00003693                kmain
+                0x0000381e                main
+                0x00003830                _main
+                0x0000383a                __main
+ .text          0x00003844       0x8c util.o
+                0x00003844                kmemcpy
+                0x0000387a                kmemcmp
+ .text          0x000038d0      0xc5c kprintf.o
+                0x000038e2                va_end
+                0x0000396e                kprintf
+                0x000039bb                ksprintf
+ .text          0x0000452c      0x648 console.o
+                0x0000452c                halt
+                0x00004532                bspetter
+                0x0000454c                delClear
+                0x000045ae                clearLine
+                0x00004623                kmemcopy
+                0x0000466d                console_clear
+                0x000046c7                console_init
+                0x00004730                console_putc
+                0x0000495e                displr
+                0x000049da                sdoc
+                0x00004a03                sdocone
+                0x00004a2c                sdoctwo
+                0x00004a55                sdocthree
+                0x00004a7e                sdocfour
+                0x00004aa7                sdocfive
+                0x00004ad0                sdocsix
+                0x00004af9                sdocseven
+                0x00004b22                sdoceight
+                0x00004b4b                sdocnine
+ .text          0x00004b74      0x16c keyboard.o
+                0x00004b74                keyboard_getline
+                0x00004be0                keyboard_inturrupt
+ *(.rodata)
+ *(.rdata)
+ .rdata         0x00004ce0      0x24c kernelc.o
+ .rdata         0x00004f2c      0x1c4 kprintf.o
+ .rdata         0x000050f0       0x78 console.o
+ .rdata         0x00005168       0x64 keyboard.o
+ *(.rdata$zzz)
+ .rdata$zzz     0x000051cc       0x14 kernelc.o
+ .rdata$zzz     0x000051e0       0x14 util.o
+ .rdata$zzz     0x000051f4       0x14 kprintf.o
+ .rdata$zzz     0x00005208       0x14 console.o
+ .rdata$zzz     0x0000521c       0x14 keyboard.o
+                0x00005230                etext = .
+                0x00006000                . = ALIGN (ABSOLUTE (.), 0x1000)
+ *fill*         0x00005230      0xdd0 
+                0x00006000                _sdata = .
+                0x00006000                sdata = .
+ *(.data)
+ .data          0x00006000      0x806 kernelasm.o
+ *fill*         0x00006806        0x2 
+ .data          0x00006808       0x20 kernelc.o
+                0x00006808                black
+                0x0000680c                blue
+                0x00006810                limegreen
+                0x00006814                cyan
+                0x00006818                crimson
+                0x0000681c                purple
+                0x00006820                tan
+                0x00006824                grey
+ .data          0x00006828        0x0 util.o
+ .data          0x00006828        0x0 kprintf.o
+ .data          0x00006828        0x0 console.o
+ *fill*         0x00006828       0x18 
+ .data          0x00006840      0x180 keyboard.o
+                0x00006840                scancodes
+                0x000068c0                shcodes
+                0x00006940                shiftedscancodes
+                0x000069c0                _edata = .
+                0x000069c0                edata = .
+                0x000069c0                _sbss = .
+                0x000069c0                sbss = .
+ *(COMMON)
+ COMMON         0x000069c0       0x4c kernelc.o
+                0x000069c0                crow
+                0x000069c4                global_counter
+                0x000069c8                linesize
+                0x000069cc                chh
+                0x000069d0                buffer_ready
+                0x000069d4                c
+                0x000069e0                linebuff
+                0x00006a08                bspacectr
+ COMMON         0x00006a0c       0x1c console.o
+                0x00006a0c                cursordudecol
+                0x00006a10                cursorduderow
+                0x00006a14                rctr
+                0x00006a18                hhh
+                0x00006a1c                colctr
+                0x00006a20                exrctr
+                0x00006a24                ccc
+ *fill*         0x00006a28       0x18 
+ COMMON         0x00006a40       0x8c keyboard.o
+                0x00006a40                files
+ *(.bss)
+ .bss           0x00006acc       0x10 kernelc.o
+                0x00006acc                capslock
+                0x00006ad0                shift
+                0x00006ad4                controller
+                0x00006ad8                clock
+ .bss           0x00006adc        0x0 util.o
+ .bss           0x00006adc        0x0 kprintf.o
+ .bss           0x00006adc        0x0 console.o
+ .bss           0x00006adc       0x24 keyboard.o
+                0x00006adc                oneoffset
+                0x00006ae0                onecounter
+                0x00006ae4                twocounter
+                0x00006ae8                threecounter
+                0x00006aec                fourcounter
+                0x00006af0                fivecounter
+                0x00006af4                sixcounter
+                0x00006af8                sevencounter
+                0x00006b00                _ebss = .
+                0x00006b00                ebss = .
+
+.drectve        0x00007000      0x400
+ .drectve       0x00007000      0x104 kernelc.o
+ .drectve       0x00007104       0x44 kprintf.o
+ .drectve       0x00007148       0xec console.o
+ .drectve       0x00007234       0xc8 keyboard.o
+
+/DISCARD/
+ *(.eh_frame)
+ *(.comment)
+LOAD kernelasm.o
+LOAD kernelinb.o
+LOAD kernelc.o
+LOAD util.o
+LOAD kprintf.o
+LOAD console.o
+LOAD keyboard.o
+OUTPUT(kernel.tmp pei-i386)

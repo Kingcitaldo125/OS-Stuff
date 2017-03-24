@@ -1,0 +1,14 @@
+version=1
+CID=deadbeef
+parentCID=ffffffff
+createType="fullDevice"
+RW 131072 FLAT "C:\users\paul\documents\Operating Systems One\FXL\hd1.img" 0
+#DDB
+ddb.virtualHWVersion = "4"
+ddb.geometry.cylinders = "16383"
+ddb.geometry.heads = "16"
+ddb.adapterType = "lsilogic"
+ddb.toolsVersion = "7240"
+ddb.geometry.biosCylinders="1024"
+ddb.geometry.biosHeads="255"
+ddb.geometry.biosSectors="63"
